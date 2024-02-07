@@ -79,4 +79,24 @@ html, body {
     
 }
 
+#wrongAnswer {
+    position: absolute;
+    top: 7%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    display: inline-block;
+    padding: 10px;
+    color: #4ab2f7;
+    border: 3px solid #4ab2f7;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 0 0 20px #4ab2f7, 0 0 20px #4ab2f7; /* Add a glowing effect */
+    white-space: nowrap; /* Ensure text remains on one line */
+    display: none;
+}
+
+
+
+
 
