@@ -148,6 +148,14 @@ html, body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Set the text color to transparent */
 }
+#nerdBtn{
+    border: 2px solid #ffc83d;
+    font-size: 35px !important;
+}
+#badboyBtn{
+    border: 2px solid #4ab2f7;
+    font-size: 35px !important;
+}
 
 
 @media screen and (min-width: 768px) {
