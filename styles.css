@@ -6,6 +6,7 @@ html, body {
     overflow-y: hidden;
     overflow-x: hidden;
     touch-action: manipulation; /* Prevent pinch-zooming */
+    background-color: #fbf5f4;
 }
 
 .container {
@@ -43,6 +44,7 @@ html, body {
     transform: translate(-50%, -50%); /* Center using translate */
     cursor: grab;
     font-size: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 #likeBox {
@@ -97,13 +99,54 @@ html, body {
 }
 
 #magicButtons {
-    top: 90%;
+    top: 88%;
     width: 100%;
     position: absolute;
     /* background-color: beige; */
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+}
+
+#magicButtons button {
+    background-color: #ffffff; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 50%; /* Rounded corners */
+    padding: 15px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    width: 70px; /* Width of the button */
+    height: 70px; /* Height of the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Style icons */
+/* #magicButtons button i {
+    font-size: 2em;
+} */
+
+
+#xBtn {
+    border: 2px solid #F74A66;
+}
+#xBtn i {
+    font-size: 2.5em;
+    background: linear-gradient(to top right, #d41d54, #F74A66); /* Define the linear gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Set the text color to transparent */
+}
+
+#heartBtn{
+    border: 2px solid #63DE9B;
+}
+#heartBtn i {
+    font-size: 2em;
+    background: linear-gradient(to right, #63DE9B, #22ca6e); /* Define the linear gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Set the text color to transparent */
 }
 
 
