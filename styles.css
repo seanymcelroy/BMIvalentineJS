@@ -42,14 +42,14 @@ html, body {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center using translate */
     cursor: grab;
-
+    font-size: 30px;
 }
 
 #likeBox {
     position: absolute;
     top: 10%;
     left: 10%;
-    font-size: 30px;
+    
     display: inline-block; /* Make the div behave like an inline element */
     padding: 10px; /* Add padding to adjust the spacing around the text */
     color: #63DE9B;
@@ -65,8 +65,8 @@ html, body {
 #uglyBox {
     position: absolute;
     top: 10%;
-    left: 60%;
-    font-size: 30px;
+    right: 10%;
+    
     display: inline-block; /* Make the div behave like an inline element */
     padding: 10px; /* Add padding to adjust the spacing around the text */
     color: #F74A66;
@@ -84,7 +84,7 @@ html, body {
     top: 7%; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 30px;
+    
     display: inline-block;
     padding: 10px;
     color: #4ab2f7;
@@ -96,7 +96,34 @@ html, body {
     display: none;
 }
 
+#magicButtons {
+    top: 90%;
+    width: 100%;
+    position: absolute;
+    /* background-color: beige; */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 
+
+@media screen and (min-width: 768px) {
+    #bmi span {
+        font-size: 64px; /* Increase font size for larger screens */
+    }
+    #card {
+        font-size: 50px; /* Increase font size for larger screens */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #bmi span {
+        font-size: 85px; /* Further increase font size for even larger screens */
+    }
+    #card {
+        font-size: 70px;/* Increase font size for larger screens */
+    }
+}
 
 
 
