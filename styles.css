@@ -46,10 +46,7 @@ html, body {
     font-size: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    /* background-image: url("assets/badboy.jpg");
-    background-position: center; /* Center the image */
-    /* background-repeat: no-repeat; Do not repeat the image */
-    /* background-size: cover; Resize the background image to cover the entire container */
+    max-width: 850px;
 
 }
 
@@ -78,18 +75,39 @@ html, body {
     bottom: 0;
     left: 0;
     padding: 10px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0) 80%);
-  }
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0) 100%);
+}
   
 
 #age {
-    /* font-size: 25px; */
     font-weight: 400;
     margin-left: 5px;
+    font-size: 30px;
 }
+
+#detailsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.details {
+    font-weight: 400;
+    font-size: 1rem;
+    display: flex;
+    align-items: center; /* Vertically center the content */
+}
+
+.icon-container {
+    width: 20px; /* Set a fixed width for the icon container */
+    height: 20px; /* Set a fixed height for the icon container */
+    margin-right: 5px; /* Adjust as needed */
+}
+
+
 #name {
     /* font-size: 23px; */
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 500;
 }
 
