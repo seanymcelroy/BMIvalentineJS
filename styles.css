@@ -12,23 +12,25 @@ html, body {
 .container {
     width: 100%;
     height: 100%;
-    position: relative;
-    overflow: hidden;
+    
 }
 
 #bmi {
     top: 5%;
     width: 100%;
     position: absolute;
-    /* background-color: beige; */
+    background-color: beige;
     display: flex;
     justify-content: center;
+    padding: auto;
+    text-align: center;
+    /* overflow: hidden; */
 }
 
 #bmi span{
-    /* Use Montserrat font for headings */
+    /* margin-top: 10%; */
     font-weight: 900; /* Bold */
-    font-size: 38px;
+    font-size: 32px;
     font-style: italic;
     color: #F74A66;
 }
@@ -153,13 +155,51 @@ html, body {
     
     display: inline-block;
     padding: 10px;
+    color: #c056e0;
+    border: 3px solid #c056e0;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 0 0 20px #c056e0, 0 0 20px #c056e0; /* Add a glowing effect */
+    white-space: nowrap; /* Ensure text remains on one line */
+    display: none;
+}
+#nerdmode {
+    position: absolute;
+    top: 7%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    display: inline-block;
+    padding: 10px;
+    color: #ffc83d;
+    border: 3px solid #ffc83d;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 0 0 20px #ffc83d, 0 0 20px #ffc83d; /* Add a glowing effect */
+    white-space: nowrap; /* Ensure text remains on one line */
+    background: radial-gradient(rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+    transition: opacity 0.5s ease-in-out ;
+    opacity: 0;
+
+}
+#badboymode {
+    position: absolute;
+    top: 7%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    display: inline-block;
+    padding: 10px;
     color: #4ab2f7;
     border: 3px solid #4ab2f7;
     border-radius: 5px;
     font-weight: 500;
     box-shadow: 0 0 20px #4ab2f7, 0 0 20px #4ab2f7; /* Add a glowing effect */
     white-space: nowrap; /* Ensure text remains on one line */
-    display: none;
+    background: radial-gradient(rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+    transition: opacity 0.5s ease-in-out ;
+    opacity: 0;
+
 }
 
 #magicButtons {
@@ -173,7 +213,6 @@ html, body {
 }
 
 #magicButtons button {
-    background-color: #ffffff; /* Button background color */
     color: white; /* Button text color */
     border-radius: 50%; /* Rounded corners */
     padding: 15px; /* Padding around the text */
@@ -195,6 +234,7 @@ html, body {
 
 #xBtn {
     border: 2px solid #F74A66;
+    background-color: white;
 }
 #xBtn i {
     font-size: 2.5em;
@@ -206,6 +246,7 @@ html, body {
 
 #heartBtn{
     border: 2px solid #63DE9B;
+    background-color: white;
 }
 #heartBtn i {
     font-size: 2em;
@@ -217,30 +258,16 @@ html, body {
 #nerdBtn{
     border: 2px solid #ffc83d;
     font-size: 35px !important;
+    background-color: white;
 }
 #badboyBtn{
     border: 2px solid #4ab2f7;
     font-size: 35px !important;
+    background-color: #4ab2f7;
 }
 
 
-@media screen and (min-width: 768px) {
-    #bmi span {
-        font-size: 64px; /* Increase font size for larger screens */
-    }
-    #card {
-        font-size: 50px; /* Increase font size for larger screens */
-    }
-}
 
-@media screen and (min-width: 1024px) {
-    #bmi span {
-        font-size: 85px; /* Further increase font size for even larger screens */
-    }
-    #card {
-        font-size: 70px;/* Increase font size for larger screens */
-    }
-}
 
 
 

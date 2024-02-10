@@ -7,6 +7,8 @@ let initialX;
 let isDragging = false;
 let isAnimationInProgress = false;
 
+let isNerdMode = false;
+
 
 
 const card = document.getElementById('card');
@@ -14,6 +16,10 @@ const bmi = document.getElementById('bmi');
 const likeBox = document.getElementById('likeBox');
 const uglyBox = document.getElementById('uglyBox');
 const wrongAnswerBox = document.getElementById('wrongAnswer');
+const mainText = document.getElementById('mainText');
+const nerdmodeText = document.getElementById('nerdmode');
+const badboyText = document.getElementById('badboymode');
+
 
 
 // BUTTONS
@@ -25,6 +31,7 @@ const nerdBtn = document.getElementById('nerdBtn');
 nerdBtn.addEventListener('click', nerdMode);
 const badBoyBtn = document.getElementById('badboyBtn');
 badBoyBtn.addEventListener('click', badBoyMode);
+
 
 
 
@@ -92,6 +99,7 @@ function handleTouchMove(event) {
 
 function match() {
   isDragging = false; // Stop dragging
+  mainText.innerText='CONGRATULATIONS LAUREN';
   // bmi.style.display = 'none';
   // card.style.height = '100%';
   // card.style.width = '100%';
@@ -127,7 +135,7 @@ function left() {
     setTimeout(() => {
         uglyBox.style.display='none';
         wrongAnswerBox.style.display='inline-block';
-        card.style.boxShadow='0 0 20px #4ab2f7';
+        card.style.boxShadow='0 0 20px #c056e0';
         card.style.transition = 'left 0.5s, background-color 0.5s, transform 0.1s';
         card.style.transform = `translate(-50%, -50%) rotate(2deg)`;  
     }, 500); // Duration of transition in milliseconds
@@ -180,27 +188,7 @@ function handleTouchEnd(event) {
     }, 300); // Duration of transition in milliseconds
 }
 
-// function swipeRightBtn() {
-//   // Simulate the desired offsetX value
-//   let offsetX = 260;
 
-//   // Calculate the new left position of the card
-//   let newLeft = initialX + offsetX;
-
-//   // Apply the same animation logic as in handleTouchMove
-//   card.style.left = newLeft + 'px';
-//   uglyBox.style.display = 'none';
-//   likeBox.style.display = 'inline-block';
-//   card.style.boxShadow = '0 0 20px #63DE9B';
-//   let rotationAngle = offsetX / 10;
-//   card.style.transition = 'transform 0.2s ease';
-//   card.style.transform = `translate(15%, -50%) rotate(${rotationAngle}deg)`;
-
-//   // Check if the swipe distance is enough to trigger a match
-//   if (offsetX > 240) {
-//       match();
-//   }
-// }
 
 function swipeRightBtn() {
   // Calculate the halfway point of the card's width
@@ -227,6 +215,8 @@ function swipeRightBtn() {
   match();
 }
 function swipeLeftBtn() {
+
+  // xBtn.style.backgroundColor = '#F74A66';
   // Calculate the halfway point of the card's width
   let halfwayPoint = card.offsetWidth / 2;
 
@@ -256,16 +246,46 @@ function swipeLeftBtn() {
 
 
 function nerdMode() {
+  if (isAnimationInProgress || isNerdMode) {
+    return;
+  }
+  nerdBtn.style.backgroundColor='#ffc83d';
+  badBoyBtn.style.background='none';
+  isNerdMode=true
+  isAnimationInProgress=true;
   document.getElementById('coolpic').style.display = 'none';
   document.getElementById('nerdpic').style.display = 'block';
+  setTimeout(() => {
+    nerdmodeText.style.opacity = 1;
+    card.style.boxShadow='0 0 20px #ffc83d';
+    setTimeout(() => {
+      nerdmodeText.style.opacity = 0;
+      card.style.boxShadow = 'none';
+      isAnimationInProgress=false;
+    }, 1000);
+  }, 200);
   // card.style.backgroundImage = 'url("assets/nerd.jpg")';
 }
 
 function badBoyMode() {
-  // var card = document.getElementById('card');
-  // card.style.backgroundImage = 'url("assets/badboy.jpg")';
-  document.getElementById('coolpic').style.display = 'block';
+  if (isAnimationInProgress || !isNerdMode) {
+    return;
+  }
+  badBoyBtn.style.backgroundColor='#4ab2f7';
+  nerdBtn.style.background='none';
+  isNerdMode=false;
+  isAnimationInProgress=true;
   document.getElementById('nerdpic').style.display = 'none';
+  document.getElementById('coolpic').style.display = 'block';
+  setTimeout(() => {
+    badboyText.style.opacity = 1;
+    card.style.boxShadow='0 0 20px #4ab2f7';
+    setTimeout(() => {
+      badboyText.style.opacity = 0;
+      card.style.boxShadow = 'none';
+      isAnimationInProgress=false;
+    }, 1000);
+  }, 200);
 }
 
 
