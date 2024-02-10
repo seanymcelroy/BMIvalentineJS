@@ -45,6 +45,52 @@ html, body {
     cursor: grab;
     font-size: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    /* background-image: url("assets/badboy.jpg");
+    background-position: center; /* Center the image */
+    /* background-repeat: no-repeat; Do not repeat the image */
+    /* background-size: cover; Resize the background image to cover the entire container */
+
+}
+
+#nerdpic{
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/nerd.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#coolpic{
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/badboy.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#profileDescription {
+    color: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0) 80%);
+  }
+  
+
+#age {
+    /* font-size: 25px; */
+    font-weight: 400;
+    margin-left: 5px;
+}
+#name {
+    /* font-size: 23px; */
+    font-size: 40px;
+    font-weight: 500;
 }
 
 #likeBox {
@@ -135,6 +181,7 @@ html, body {
 #xBtn i {
     font-size: 2.5em;
     background: linear-gradient(to top right, #d41d54, #F74A66); /* Define the linear gradient */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Set the text color to transparent */
 }
@@ -145,6 +192,7 @@ html, body {
 #heartBtn i {
     font-size: 2em;
     background: linear-gradient(to right, #63DE9B, #22ca6e); /* Define the linear gradient */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Set the text color to transparent */
 }

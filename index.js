@@ -21,6 +21,10 @@ const heartBtn = document.getElementById('heartBtn');
 heartBtn.addEventListener('click', swipeRightBtn);
 const xBtn = document.getElementById('xBtn');
 xBtn.addEventListener('click', swipeLeftBtn);
+const nerdBtn = document.getElementById('nerdBtn');
+nerdBtn.addEventListener('click', nerdMode);
+const badBoyBtn = document.getElementById('badboyBtn');
+badBoyBtn.addEventListener('click', badBoyMode);
 
 
 
@@ -39,35 +43,6 @@ function handleTouchStart(event) {
     isDragging = true;
 }
 
-// function handleTouchMove(event) {
-//     if (isDragging) {
-//         let offsetX = event.touches[0].clientX - startX;
-//         // let offsetY = event.touches[0].clientY - startY;
-//         card.style.left = initialX + offsetX + 'px';
-        
-//         if (offsetX<0){
-//           // card.style.backgroundColor='red';
-//           likeBox.style.display='none';
-//           uglyBox.style.display='inline-block';
-//           card.style.boxShadow='0 0 20px #F74A66';
-//         }else{
-//           uglyBox.style.display='none';
-//           likeBox.style.display='inline-block';
-//           card.style.boxShadow='0 0 20px #63DE9B';
-//           // card.style.backgroundColor='green';
-//         }
-//         let rotationAngle = offsetX / 10;
-//         // console.log('Rotation Angle : ' +rotationAngle);
-//         card.style.transform = ` translate(-50%, -50%) rotate(${rotationAngle}deg)`;
-
-//         if (offsetX>240){
-//           match();
-//         }
-//         else if(offsetX<-240){
-//           left();
-//         }
-//     }
-// }
 
 function handleTouchMove(event) {
   if (isDragging) {
@@ -280,6 +255,18 @@ function swipeLeftBtn() {
 }
 
 
+function nerdMode() {
+  document.getElementById('coolpic').style.display = 'none';
+  document.getElementById('nerdpic').style.display = 'block';
+  // card.style.backgroundImage = 'url("assets/nerd.jpg")';
+}
+
+function badBoyMode() {
+  // var card = document.getElementById('card');
+  // card.style.backgroundImage = 'url("assets/badboy.jpg")';
+  document.getElementById('coolpic').style.display = 'block';
+  document.getElementById('nerdpic').style.display = 'none';
+}
 
 
 
