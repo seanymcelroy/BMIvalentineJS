@@ -19,6 +19,20 @@ const uglyBox = document.getElementById('uglyBox');
 const wrongAnswerBox = document.getElementById('wrongAnswer');
 const mainText = document.getElementById('mainText');
 const nerdmodeText = document.getElementById('nerdmode');
+const swipeText = document.getElementById('swipeText');
+
+const continueBTN = document.getElementById('continueBtn');
+const playBTN = document.getElementById('play');
+
+const trainingSection = document.getElementById('trainingSection');
+const trainingSection2 = document.getElementById('trainingSection2');
+
+continueBTN.addEventListener('click', ()=>{
+  trainingSection.style.display='none';
+})
+playBTN.addEventListener('click', ()=>{
+  trainingSection2.style.display='none';
+})
 
 const kiss = document.getElementById('kiss');
 
@@ -27,6 +41,30 @@ const badboyText = document.getElementById('badboymode');
 let valentinesNameWrong = 'Laura'
 
 const magicBtns = document.getElementById('magicButtons');
+
+
+const swipeDiv = document.querySelector('#swipeDiv');
+
+// Add event listener for animation end
+swipeDiv.addEventListener('animationend', handleAnimationEnd);
+
+function handleAnimationEnd(){
+  setTimeout(()=>{
+    if (swipeDiv.classList.contains('swipeLeft')) {
+      swipeText.innerHTML=`<span>Swipe Right for <span style="color: #63DE9B;">Yes</span></span>`
+      swipe('Right');
+    }else{
+      swipeText.innerHTML=`<span>Swipe Left for <span style="color: #F74A66;">No</span></span>`
+      swipe('Left');
+    }
+  }, 200)
+}
+
+function swipe(direction) {
+    swipeDiv.classList.remove('swipeLeft', 'swipeRight');
+    swipeDiv.classList.add('swipe' + direction);
+}
+
 
 
 // BUTTONS
@@ -164,7 +202,7 @@ function match(transX, rotationAngle) {
         clearInterval(interval); // Clear the interval
         setTimeout(()=>{
           getNameRight();
-        }, 3000)
+        }, 2000)
       }
     }, 300);
   

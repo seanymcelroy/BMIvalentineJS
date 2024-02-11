@@ -12,6 +12,32 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 64 64'%3E%3Cpath fill='%23F74A66' d='M46.1 2C39.8 2 34.5 5.6 32 10.8C29.5 5.6 24.2 2 17.9 2C9.2 2 2 9.4 2 17.9C2 32.4 32 62 32 62s30-29.6 30-44.1C62 9.4 54.8 2 46.1 2'/%3E%3C/svg%3E">
     </head>
     <body>
+        <div id="trainingSection2">
+            <div class="trainingText">
+                <span>You can also use the buttons</span>
+            </div>
+            <div id="magicButtonsTraining">
+                <button class="xBtn" disabled><i class="fas fa-xmark"></i></button>
+                <button class="nerdBtn" disabled>🤓</button>
+                <button class="badboyBtn"disabled>😎</button>
+                <button class="heartBtn" disabled><i class="fas fa-heart"></i></button>
+            </div>
+            <div class="trainingBTNcontainer">
+                <button id="play">Play</button>
+            </div>
+        </div>
+        <div id="trainingSection">
+            <div id="swipeText" class="trainingText">
+                <span>Swipe Right for <span style="color: #63DE9B;">Yes</span></span>
+            </div>
+            <div id="swipeDiv" class="swipeRight">
+                <div class="swipeBall"></div>
+                <img id="swipehand" src="assets/swipe.png" alt="swipe">
+            </div>
+            <div class="trainingBTNcontainer">
+                <button id="continueBtn">Continue</button>
+            </div>
+        </div>
         <div class="container">
             <div id="bmi">
                 <span id="mainText">Be my Valentine?</span>
@@ -45,10 +71,10 @@
                 <div id="matchpic"></div>
             </div>
             <div id="magicButtons">
-                <button id="xBtn"><i class="fas fa-xmark"></i></button>
-                <button id="nerdBtn">🤓</button>
-                <button id="badboyBtn">😎</button>
-                <button id="heartBtn"><i class="fas fa-heart"></i></button>
+                <button id="xBtn" class="xBtn"><i class="fas fa-xmark"></i></button>
+                <button id="nerdBtn" class="nerdBtn">🤓</button>
+                <button id="badboyBtn" class="badboyBtn">😎</button>
+                <button id="heartBtn" class="heartBtn"><i class="fas fa-heart"></i></button>
             </div>
             <div id="playAgainBox">
                 <button id="playAgain">Play Again</button>
