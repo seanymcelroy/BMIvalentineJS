@@ -26,10 +26,55 @@ const playBTN = document.getElementById('play');
 
 const trainingSection = document.getElementById('trainingSection');
 const trainingSection2 = document.getElementById('trainingSection2');
+const magicTrainingBTNs = document.getElementById('magicButtonsTraining').querySelectorAll('button');
+const btnExplanation = document.getElementById('btnExplanation');
+
+const trainingDict ={
+  'xBtn': `Swipe <span style='color: #F74A66;'>left</span>`,
+  'nerdBtn': `<span style='color: #ffc83d;'>Nerd</span> mode`,
+  'badboyBtn': `<span style='color: #4ab2f7;'>Bad boy</span> mode`,
+  'heartBtn': `Swipe <span style='color: #63DE9B;'>right</span>`,
+  'all': `You can also use the buttons`
+}
 
 continueBTN.addEventListener('click', ()=>{
   trainingSection.style.display='none';
+
+  // Start
+
+  let currentButtonIndex = 0;
+  // Function to change opacity of buttons
+  function changeOpacity() {
+    console.log(currentButtonIndex);
+    if(currentButtonIndex===4){
+      magicTrainingBTNs.forEach((button, index) => {
+        btnExplanation.innerHTML=trainingDict['all'];
+        button.style.opacity = 1;
+    });
+      // console.log("wdhiw")
+    }else{
+      magicTrainingBTNs.forEach((button, index) => {
+        if (index === currentButtonIndex){
+            console.log(button.classList[0]);
+            btnExplanation.innerHTML=trainingDict[button.classList[0]]
+            button.style.opacity = 1;
+          }else{
+            button.style.opacity = 0.2;
+          }
+      });
+
+    }
+    currentButtonIndex = (currentButtonIndex + 1) % 5; // Move to the next button
+  }
+  // Initially set the opacity for the first button to 1
+  // magicTrainingBTNs[currentButtonIndex].style.opacity = 1;
+
+  // Set interval to change opacity every second
+  setInterval(changeOpacity, 1500);
 })
+
+
+
 playBTN.addEventListener('click', ()=>{
   trainingSection2.style.display='none';
 })
@@ -51,10 +96,10 @@ swipeDiv.addEventListener('animationend', handleAnimationEnd);
 function handleAnimationEnd(){
   setTimeout(()=>{
     if (swipeDiv.classList.contains('swipeLeft')) {
-      swipeText.innerHTML=`<span>Swipe Right for <span style="color: #63DE9B;">Yes</span></span>`
+      swipeText.innerHTML=`<span>Swipe Right for <br> <span style="color: #63DE9B;">Yes</span></span>`
       swipe('Right');
     }else{
-      swipeText.innerHTML=`<span>Swipe Left for <span style="color: #F74A66;">No</span></span>`
+      swipeText.innerHTML=`<span>Swipe Left for <br> <span style="color: #F74A66;">No</span></span>`
       swipe('Left');
     }
   }, 200)
