@@ -12,19 +12,19 @@ html, body {
 .container {
     width: 100%;
     height: 100%;
-    
+    /* max-width: 1800px; */
 }
 
 #bmi {
     top: 5%;
     width: 100%;
     position: absolute;
-    background-color: beige;
     display: flex;
     justify-content: center;
     padding: auto;
     text-align: center;
     /* overflow: hidden; */
+    transition: opacity 0.7s ease-out ;
 }
 
 #bmi span{
@@ -52,9 +52,11 @@ html, body {
 
 }
 
-#matchCard{
+#matchCard {
     display: none;
-}
+    left: -100%;
+    transition: left 0.4s ease-out, transform 0.6s ease;
+}  
 
 #matchpic{
     width: 100%;
@@ -195,6 +197,7 @@ html, body {
     opacity: 0;
 
 }
+
 #badboymode {
     position: absolute;
     top: 7%; /* Adjust as needed */
@@ -209,7 +212,6 @@ html, body {
     font-weight: 500;
     box-shadow: 0 0 20px #4ab2f7, 0 0 20px #4ab2f7; /* Add a glowing effect */
     white-space: nowrap; /* Ensure text remains on one line */
-    background: radial-gradient(rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
     transition: opacity 0.5s ease-in-out ;
     opacity: 0;
 
@@ -219,21 +221,21 @@ html, body {
     top: 88%;
     width: 100%;
     position: absolute;
-    /* background-color: beige; */
     display: flex;
     justify-content: center;
     gap: 20px;
 }
+
 #playAgainBox {
     
     top: 88%;
     width: 100%;
     position: absolute;
-    /* background-color: beige; */
     display: flex;
     justify-content: center;
     gap: 20px;
 }
+
 #playAgain {
     padding: 10px;
     display: none;
@@ -264,16 +266,12 @@ html, body {
     justify-content: center;
 }
 
-/* Optional: Style icons */
-/* #magicButtons button i {
-    font-size: 2em;
-} */
-
 
 #xBtn {
     border: 2px solid #F74A66;
     background-color: white;
 }
+
 #xBtn i {
     font-size: 2.5em;
     background: linear-gradient(to top right, #d41d54, #F74A66); /* Define the linear gradient */
@@ -286,6 +284,7 @@ html, body {
     border: 2px solid #63DE9B;
     background-color: white;
 }
+
 #heartBtn i {
     font-size: 2em;
     background: linear-gradient(to right, #63DE9B, #22ca6e); /* Define the linear gradient */
@@ -293,19 +292,15 @@ html, body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Set the text color to transparent */
 }
+
 #nerdBtn{
     border: 2px solid #ffc83d;
     font-size: 35px !important;
     background-color: white;
 }
+
 #badboyBtn{
     border: 2px solid #4ab2f7;
     font-size: 35px !important;
     background-color: #4ab2f7;
 }
-
-
-
-
-
-

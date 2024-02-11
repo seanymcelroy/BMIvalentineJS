@@ -20,9 +20,11 @@ const wrongAnswerBox = document.getElementById('wrongAnswer');
 const mainText = document.getElementById('mainText');
 const nerdmodeText = document.getElementById('nerdmode');
 
+const kiss = document.getElementById('kiss');
+
 const badboyText = document.getElementById('badboymode');
 
-let valentinesName = 'Lauren'
+let valentinesNameWrong = 'Laura'
 
 const magicBtns = document.getElementById('magicButtons');
 
@@ -104,6 +106,7 @@ function handleTouchMove(event) {
 
 
 
+
 function match(transX, rotationAngle) {
 
   isDragging = false; // Stop dragging
@@ -114,16 +117,125 @@ function match(transX, rotationAngle) {
   // }, 50);
   setTimeout(() => {
     // card.style.transform = `translate(-50%, -50%) translateX(${4*transX}px) rotate(${rotationAngle}deg)`;
-    mainText.innerText=`CONGRATULATIONS ${valentinesName}`;
     magicBtns.style.display='none';
     card.style.display='none';
-    matchCard.style.display='block';
     playAgainBtn.style.display='block';
-    setTimeout(() => {
-      playAgainBtn.style.opacity=1;
-      setInterval( confetti , 1000 )
-    }, 100);
-  }, 400);
+    
+    matchCard.style.display='block';
+    matchCard.style.transform=`translate(-50%, -50%) rotate(${rotationAngle}deg)`;
+    function animateToCenter() {
+      matchCard.style.left = '50%'
+      matchCard.style.transform=`translate(-50%, -50%) rotate(${0}deg)`;
+      // card.style.transform = `translate(-50%, -50%)`;
+      // matchCard.style.transform = `rotate(${rotationAngle}deg)`; // Apply rotation angle
+    }
+    // animateToCenter();
+    // Set a timeout to execute the animation after 200 milliseconds
+    setTimeout(animateToCenter, 50);
+
+
+  }, 300);
+  
+
+  function type(letter){
+      mainText.innerHTML +=letter; 
+  }
+
+  mainText.innerHTML=''
+  bmi.style.opacity=0
+
+  setTimeout(()=>{
+    mainText.innerHTML = `Happy Valentines <br> `;
+    bmi.style.opacity=1;
+    setTimeout(typeMessage, 1000);
+  },1000)
+
+  
+  function typeMessage(){
+    const message=`${valentinesNameWrong}!`
+    let index=0;
+    const len = message.length;
+  
+    const interval = setInterval(() => {
+      console.log(message[index]);
+      type(message[index] );
+      index++;
+      if (index >= len) { // Change 10 to the desired count
+        clearInterval(interval); // Clear the interval
+        setTimeout(()=>{
+          getNameRight();
+        }, 3000)
+      }
+    }, 300);
+  
+  
+    function getNameRight(){
+      index=0
+      let interval = setInterval(() => {
+  
+        mainText.innerHTML  = mainText.innerHTML.slice(0, -1); 
+        index++;
+        if (index >= 2) { // Change 10 to the desired count
+          clearInterval(interval); // Clear the interval
+  
+          const fixedEnding='en!!!'
+          index=0;
+          const nuinterval = setInterval(() => {
+            console.log(fixedEnding[index]);
+            type(fixedEnding[index]);
+            index++;
+            if (index >= fixedEnding.length) { // Change 10 to the desired count
+              clearInterval(nuinterval); // Clear the interval
+              setTimeout(()=>{
+                // kiss.style.display='inline';
+                mainText.innerHTML+=`<span id="kiss" style="font-style: normal; position:absolute;">😘</span>`
+                confettiTime();
+              }, 1000)
+            }
+          }, 300);
+        }
+      }, 300);
+  
+    }
+  }
+
+
+
+  
+  function confettiTime(){
+    confetti({
+      // Options here
+      particleCount: 150,
+      spread: 70,
+      ticks: 800,
+      origin: {
+        y:0
+      }
+    });
+    setInterval(() => {
+      confetti({
+        // Options here
+        particleCount: 60,
+        spread: 70,
+        ticks: 800,
+        origin: {
+          y:0
+        }
+      });
+      setTimeout(() => {
+        playAgainBtn.style.opacity=1;
+        
+      }, 1000);
+    }, 500);
+  }
+
+  // const container = document.querySelector('#firework-container')
+  // const fireworks = new Fireworks.Fireworks(container, {
+  //   traceLength: 1,
+  //   explosion:1,
+  //   traceSpeed: 2
+  // })
+  // fireworks.start()
   
 }
 
