@@ -12,14 +12,19 @@ let isNerdMode = false;
 
 
 const card = document.getElementById('card');
+const matchCard = document.getElementById('matchCard');
 const bmi = document.getElementById('bmi');
 const likeBox = document.getElementById('likeBox');
 const uglyBox = document.getElementById('uglyBox');
 const wrongAnswerBox = document.getElementById('wrongAnswer');
 const mainText = document.getElementById('mainText');
 const nerdmodeText = document.getElementById('nerdmode');
+
 const badboyText = document.getElementById('badboymode');
 
+let valentinesName = 'Lauren'
+
+const magicBtns = document.getElementById('magicButtons');
 
 
 // BUTTONS
@@ -31,6 +36,8 @@ const nerdBtn = document.getElementById('nerdBtn');
 nerdBtn.addEventListener('click', nerdMode);
 const badBoyBtn = document.getElementById('badboyBtn');
 badBoyBtn.addEventListener('click', badBoyMode);
+const playAgainBtn = document.getElementById('playAgain');
+playAgainBtn.addEventListener('click', replay);
 
 
 
@@ -64,7 +71,7 @@ function handleTouchMove(event) {
           rotationAngle *= offsetX < 0 ? -1 : 1;
           console.log(rotationAngle);
           if (offsetX > 0) {
-              match();
+            match(offsetX, rotationAngle);
           } else {
               left();
           }
@@ -97,32 +104,27 @@ function handleTouchMove(event) {
 
 
 
-function match() {
+function match(transX, rotationAngle) {
+
   isDragging = false; // Stop dragging
-  mainText.innerText='CONGRATULATIONS LAUREN';
-  // bmi.style.display = 'none';
-  // card.style.height = '100%';
-  // card.style.width = '100%';
-  // card.style.backgroundColor = 'grey';
-  // card.style.left = `0%`;
-  // card.style.top = `0%`;
-  // card.style.transform = `rotate(0deg)`;
 
-  // // Set the animation flag to true to indicate animations are in progress
-  // isAnimationInProgress = true;
-
-  // // Create an image element for the match overlay
-  // const matchOverlay = document.createElement('img');
-  // matchOverlay.src = 'itsAMatch.png';
-  // matchOverlay.style.position = 'absolute';
-  // matchOverlay.style.top = '50%';
-  // matchOverlay.style.left = '50%';
-  // matchOverlay.style.transform = 'translate(-50%, -50%)';
-  // matchOverlay.style.zIndex = '999'; // Ensure it's on top of other elements
-  // matchOverlay.style.transition = 'opacity 0.5';
-
-  // // Append the match overlay to the card element
-  // card.appendChild(matchOverlay);
+  card.style.transition = 'transform 0.4s ease-in';
+  // setTimeout(() => {
+    card.style.transform = `translate(-50%, -50%) translateX(${4*transX}px) rotate(${rotationAngle}deg)`;
+  // }, 50);
+  setTimeout(() => {
+    // card.style.transform = `translate(-50%, -50%) translateX(${4*transX}px) rotate(${rotationAngle}deg)`;
+    mainText.innerText=`CONGRATULATIONS ${valentinesName}`;
+    magicBtns.style.display='none';
+    card.style.display='none';
+    matchCard.style.display='block';
+    playAgainBtn.style.display='block';
+    setTimeout(() => {
+      playAgainBtn.style.opacity=1;
+      setInterval( confetti , 1000 )
+    }, 100);
+  }, 400);
+  
 }
 
 function left() {    
@@ -204,15 +206,18 @@ function swipeRightBtn() {
   uglyBox.style.display = 'none';
   likeBox.style.display = 'inline-block';
   card.style.boxShadow = '0 0 20px #63DE9B';
-  card.style.transition = 'transform 0.2s ease';
+
+  card.style.transition = 'transform 0.4s ease-in';
 
   // Translate the card's width to the right by half its width
   let translateXValue = halfwayPoint;
 
   // Apply rotation and translation
   card.style.transform = `translate(-50%, -50%) translateX(${translateXValue}px) rotate(${rotationAngle}deg)`;
+  setTimeout(() => {
+    match(translateXValue, rotationAngle);
+  }, 400);
 
-  match();
 }
 function swipeLeftBtn() {
 
@@ -290,5 +295,9 @@ function badBoyMode() {
 
 
 
-
+function replay(){
+  playAgainBtn.style.color='white'
+  playAgainBtn.style.backgroundColor='#F74A66'
+  location.reload();
+}
 
