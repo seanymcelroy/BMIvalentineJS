@@ -27,6 +27,8 @@ const wrongAnswerBox = document.getElementById('wrongAnswer');
 const mainText = document.getElementById('mainText');
 const nerdmodeText = document.getElementById('nerdmode');
 const swipeText = document.getElementById('swipeText');
+const swipehandR = document.getElementById('swipehandR');
+const swipehandL = document.getElementById('swipehandL');
 
 const continueBTN = document.getElementById('continueBtn');
 const playBTN = document.getElementById('play');
@@ -144,9 +146,13 @@ function handleAnimationEnd(){
     if (swipeDiv.classList.contains('swipeLeft')) {
       swipeText.innerHTML=`<span>Swipe Right for <br> <span style="color: #63DE9B;">Yes</span></span>`
       swipe('Right');
+      swipehandL.style.display="none";
+      swipehandR.style.display="block";
     }else{
       swipeText.innerHTML=`<span>Swipe Left for <br> <span style="color: #F74A66;">No</span></span>`
       swipe('Left');
+      swipehandR.style.display="none";
+      swipehandL.style.display="block";
     }
   }, 200)
 }

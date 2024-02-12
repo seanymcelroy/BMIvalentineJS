@@ -101,11 +101,20 @@ html, body {
 }
 
 
-#swipehand {
+#swipehandR {
     height: 60px;
     width: 60px;
     position: relative;
-    transform: rotate(20deg);
+    left: 1%;
+    /* display: none; */
+    /* transform: rotate(20deg); */
+}
+#swipehandL {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    display: none;
+    /* transform: rotate(20deg); */
 }
 
 .trainingBTNcontainer{
