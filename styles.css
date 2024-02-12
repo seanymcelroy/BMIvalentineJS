@@ -68,11 +68,11 @@ html, body {
 }
 
 .swipeLeft {
-    animation: swipeLeftAnimation 1.5s ease-in-out 2 forwards;
+    animation: swipeLeftAnimation 1.2s ease-in 2 forwards;
 }
 
 .swipeRight {
-    animation: swipeRightAnimation 1.5s ease-in-out 2 forwards;
+    animation: swipeRightAnimation 1.2s ease-in 2 forwards;
 }
 
 
@@ -123,7 +123,8 @@ html, body {
     height: 80px;
     border: none;
     border-radius: 40px;
-    background-color: #4ab2f7;
+    /* background: linear-gradient(45deg, #FF3179, #FF655C); */
+    background: linear-gradient(45deg, #4ab2f7, #1e86e9);
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
@@ -347,9 +348,9 @@ html, body {
     gap: 20px;
 }
 #magicButtonsTraining {
-    top: 30%;
+    top: 35%;
     width: 100%;
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     gap: 20px;
