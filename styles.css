@@ -6,7 +6,7 @@ html, body {
     overflow-y: hidden;
     overflow-x: hidden;
     touch-action: manipulation; /* Prevent pinch-zooming */
-    background-color: #fbf5f4;
+    background-color: #fbf5f4;    
 }
 
 .container {
@@ -102,18 +102,21 @@ html, body {
 
 
 #swipehandR {
-    height: 60px;
-    width: 60px;
+    height: 120px;
+    width: 120px;
     position: relative;
-    left: 1%;
+    top: -45px;
+    left: -18px;
     /* display: none; */
     /* transform: rotate(20deg); */
 }
 #swipehandL {
-    height: 60px;
-    width: 60px;
+    height: 120px;
+    width: 120px;
     position: relative;
     display: none;
+    top: -45px;
+    left: -34px;
     /* transform: rotate(20deg); */
 }
 
@@ -179,7 +182,7 @@ html, body {
     font-size: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    max-width: 850px;
+    max-width: 600px;
 
 }
 
